@@ -2,26 +2,29 @@ import React, { useState } from "react";
 import Navlogo from "../assets/images/reslogo.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 const handleralter = () => {
-  Swal.fire("Success!","user Logout successfully","success");
+  Swal.fire("Success!", "user Logout successfully", "success");
 };
 
 function Navbar() {
   const [Toggle, setToggle] = useState(true);
-  const navigate=useNavigate();
-  const logoutbtn=async(e)=>{
+  const navigate = useNavigate();
+  const logoutbtn = async (e) => {
     e.preventDefault();
-    await axios.get('http://localhost:8000/logout').then((res)=>{
-      console.log(res.data);
-      localStorage.setItem("token", "");
-      handleralter();
-      navigate('/registration');
-    }).catch((err)=>{
-      console.log(err)
-    });
-  }
+    await axios
+      .get("http://localhost:8000/logout")
+      .then((res) => {
+        console.log(res.data);
+        localStorage.setItem("token", "");
+        handleralter();
+        navigate("/registration");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <nav className=" position-sticky top-0 bg-white shadow-sm z-2">
@@ -76,22 +79,21 @@ function Navbar() {
               </ul>
             </div>
             <div className="col-4 d-flex justify-content-end align-items-center">
-              {/* <NavLink to='/Addproduct'> */}
-                {/* <i
-                  className="fa-solid fa-cart-shopping text-dark"
-                  style={{ fontSize: "1.2rem" }}
-                  
-                ></i> */}
-
-              <i className="fa-solid fa-right-from-bracket"  style={{ fontSize: "1.2rem" ,color:"black"}} onClick={logoutbtn}></i>
-              {/* </NavLink> */}
-              {
-                false?<button className="bn" style={{border:"2px solid red",marginLeft:"10px",background:"white",borderRadius:"5px"}}>logout</button>:<NavLink to="/login">
+              {localStorage.getItem("token") && (
                 <i
-                  className="fa-solid fa-user ms-4 text-dark"
-                  style={{ fontSize: "1.2rem" }}
+                  className="fa-solid fa-right-from-bracket"
+                  style={{ fontSize: "1.2rem", color: "black" }}
+                  onClick={logoutbtn}
                 ></i>
-              </NavLink>
+              )}
+
+              {
+                <NavLink to="/login">
+                  <i
+                    className="fa-solid fa-user ms-4 text-dark"
+                    style={{ fontSize: "1.2rem" }}
+                  ></i>
+                </NavLink>
               }
               <div
                 onClick={() => setToggle(!Toggle)}
