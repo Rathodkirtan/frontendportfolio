@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const handleralter = () => {
-  Swal.fire("Success!","user register successfully","success");
+  Swal.fire("Success!","Register Successfully","success");
 };
 
 const erroralter=()=>{

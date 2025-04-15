@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from 'sweetalert2'
 
 const handleralter = () => {
-  Swal.fire("Success!","user Login successfully","success");
+  Swal.fire("Success!","Login successfully","success");
 };
 
 const erroralter=()=>{
@@ -37,7 +37,7 @@ function Login() {
         alert("Login failed. Please try again.");
       }
     } catch (err) {
-      // console.error("Error during login:", err);
+  
       erroralter();
     }
   };

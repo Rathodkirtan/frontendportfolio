@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Icon from "../assets/images/icon-add-to-cart.svg";
 import Increase from "../assets/images/icon-increment-quantity.svg";
 import Decrease from "../assets/images/icon-decrement-quantity.svg";
-import Data from "../../data.json";
 import { NavLink } from "react-router-dom";
 import axios from "axios";
 

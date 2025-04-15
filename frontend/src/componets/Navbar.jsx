@@ -5,7 +5,7 @@ import axios from "axios";
 import Swal from "sweetalert2";
 
 const handleralter = () => {
-  Swal.fire("Success!", "user Logout successfully", "success");
+  Swal.fire("Success!", "Logout successfully", "success");
 };
 
 function Navbar() {
